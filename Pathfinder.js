@@ -83,6 +83,15 @@ function addListeners() {
     document.getElementById("select end node").addEventListener("click", addEndListener);
     document.getElementById("add wall node").addEventListener("click", addWallListener);
     document.getElementById("add weight node").addEventListener("click", addWeightListener);
+    document.getElementById("weighttwo").addEventListener("click", weightTwoListener);
+    document.getElementById("weightthree").addEventListener("click", weightThreeListener);
+    document.getElementById("weightfour").addEventListener("click", weightFourListener);
+    document.getElementById("weightfive").addEventListener("click", weightFiveListener);
+    document.getElementById("weightsix").addEventListener("click", weightSixListener);
+    document.getElementById("weightseven").addEventListener("click", weightSevenListener);
+    document.getElementById("weighteight").addEventListener("click", weightEightListener);
+    document.getElementById("weightnine").addEventListener("click", weightNineListener);
+    document.getElementById("weightten").addEventListener("click", weightTenListener);
     document.getElementById("about").addEventListener("click", aboutListener);
     document.getElementById("about-close").addEventListener("click", aboutCloseListener);
     document.getElementById("help").addEventListener("click", helpListener);
@@ -147,10 +156,47 @@ function addWallListener() {
 }
 
 function addWeightListener() {
-    selectingStart = false;
-    selectingEnd = false;
-    selectingWall = false;
-    selectingWeight = !selectingWeight;
+    // selectingStart = false;
+    // selectingEnd = false;
+    // selectingWall = false;
+    // selectingWeight = !selectingWeight;
+    document.getElementById("weight dropdown").style.display = "initial"
+}
+
+function weightTwoListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightThreeListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightFourListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightFiveListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightSixListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightSevenListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightEightListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightNineListener() {
+    document.getElementById("weight dropdown").style.display = "none"
+}
+
+function weightTenListener() {
+    document.getElementById("weight dropdown").style.display = "none"
 }
 
 function aboutListener() {
