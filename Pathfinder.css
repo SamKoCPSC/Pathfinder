@@ -1,0 +1,187 @@
+.page {
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.grid {
+    font-size:0;
+    text-align: center;
+    margin-top: 75px;
+}
+
+.node {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+}
+
+.startnode {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: green;
+}
+
+.endnode {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: red;
+}
+
+.visitednode {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: lightblue;
+}
+
+.pathnode {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: yellow;
+}
+
+.wallnode {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: black;
+}
+
+.weightnode {
+    outline: 1px solid rgb(37, 166, 170);
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-color: grey;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.title {
+    -webkit-text-size-adjust:none;
+    -ms-text-size-adjust:none;
+    -moz-text-size-adjust:none;
+    text-size-adjust:none;
+    background-color: coral;
+    /* border: 1px solid green; */
+    border: none;
+    color: white;
+    padding: 7.5px;
+    margin: 0;
+    float: left;
+    font-size: 36px;
+    font-style: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.button {
+
+    background-color: coral;
+    /* border: 1px solid green; */
+    border: none;
+    color: white;
+    padding: 20px;
+    margin: 0;
+    float: left;
+    cursor: pointer;
+}
+
+.button:active {
+    background-color: red;
+}
+
+.navbar:after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.dropdown {
+    /* position: relative; */
+    padding: 20px;
+    /* display: block; */
+    z-index: 1;
+    position: fixed;
+    left: 10;
+    top: 10;
+}
+
+.dropdown button{
+    display: flex;
+    /* height: 100%;
+    width: 100%; */
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.about-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 10px;
+}
+
+#about-close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+}
+
+#about-close:hover,#about-close:focus{
+    color: #000;
+    cursor: pointer;
+}
+
+.help-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    width: 70%;
+    border-radius: 10px;
+}
+
+#help-close {
+    color: #ccc;
+    float: right;
+    font-size: 30px;
+}
+
+#help-close:hover,#help-close:focus{
+    color: #000;
+    cursor: pointer;
+}
+
+/* .button {
+    height: 25px;
+    width: 100px;
+    display: block;
+    cursor: pointer;
+} */

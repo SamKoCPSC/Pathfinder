@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Pathfinder
+        </title>
+        <link rel="stylesheet" href="Pathfinder.css">
+        
+    </head>
+    <body class = "page">
+        <div class = "navbar">
+            <button class = "title" style = "width:20%">
+                Pathfinder
+            </button>
+            <button class = "button" id = "visualize" style = "width:10%">
+                Visualize
+            </button>
+            <button class = "button" id = "clear" style = "width:10%">
+                Clear Grid
+            </button>
+            <button class = "button" id = "select start node" style = "width:10%">
+                Add Start Nodes
+            </button>
+            <button class = "button" id = "select end node" style = "width:10%">
+                Add End Nodes
+            </button>
+            <button class = "button" id = "add wall node" style = "width:10%">
+                Add Wall Nodes
+            </button>
+            <button class= "button" id = "add weight node" style = "width:10%">
+                Add Weight Node
+                <!-- <div class = "dropdown">
+                    <button">
+                        Hello
+                    </button>
+                </div> -->
+            </button>
+            <button class = "button" id = "about" style = "width:10%">
+                About
+            </button>
+            <button class = "button" id = "help" style = "width:10%">
+                Help
+            </button>
+        </div>
+        <div class = "dropdown" id = "weight-dropdown">
+            <button class = "button" id = "weightone">
+                one
+            </button>
+            <button class = "button" id = "weighttwo">
+                two
+            </button>
+            <button class = "button" id = "weightthree">
+                three
+            </button>
+        </div>
+        <div class = "grid" id = "render"></div>
+        <div class = "modal" id = "about-modal">
+            <div class = "about-content">
+                <span id = "about-close">
+                    &times;
+                </span>
+                <h1>
+                    About
+                </h1>
+                <p>
+                    This is a project developed by Samuel Ko as an introduction to basic JavaScript, HTML, and CSS. The project highlights basic webpage design concepts, </br>
+                    simple animation, user interaction, and an understanding of pathfinding algorithms both algorithmically and visually. 
+                </p>
+                
+            </div>
+        </div>
+        <div class = "modal" id = "help-modal">
+            <div class = "help-content">
+                <span id = "help-close">
+                    &times;
+                </span>
+                <h1>
+                    Help
+                </h1>
+                <p>
+                    Clicking one of the "add" buttons will allow you to click and drag across the grid to modify the nodes of the grid. </br></br>
+                    A start node is a point or points where the algorithm will start its search </br></br>
+                    An end node is a point or points where the algorithm will end its search </br></br>
+                    The algorithm will search for the shortest path from a start to an end node, multiple start and end nodes can be created </br></br>
+                    A wall node is an impassable obstacle that the algorithm will have to move around </br></br>
+                    A weight node adds to the cost of moving over it, normal nodes have a cost of 1 </br></br>
+                    When the algorithm is finished a shortest, lowest cost path will be highlighted </br></br>
+                    If no path is possible, a path will not be highlighted </br></br>
+                </p> 
+            </div>
+        </div>
+        <script src = "Pathfinder.js" type = "text/javascript"></script>
+    </body>
+</html>
