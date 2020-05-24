@@ -4,8 +4,8 @@ let START_COL = null;
 let END_ROW = null;
 let END_COL = null;
 
-let GRID_WIDTH = 50;
-let GRID_HEIGHT = 25;
+let GRID_WIDTH = 75;
+let GRID_HEIGHT = 33;
 let grid = [];
 let visitedNodes = [];
 let pathNodes = [];
@@ -13,7 +13,16 @@ let pathNodes = [];
 let selectingStart = false;
 let selectingEnd = false;
 let selectingWall = false;
-let selectingWeight = false;
+let selectingWeightTwo = false;
+let selectingWeightThree = false;
+let selectingWeightFour = false;
+let selectingWeightFive = false;
+let selectingWeightSix = false;
+let selectingWeightSeven = false;
+let selectingWeightEight = false;
+let selectingWeightNine = false;
+let selectingWeightTen = false;
+let selectingErase = false;
 
 let mouseDown = 0;
 
@@ -59,8 +68,24 @@ function drawGrid() {
                 html += `<div class = 'startnode' id = '${col}-${row}'></div>`;
             } else if(grid[col][row].isEnd) {
                 html += `<div class = 'endnode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 2) {
+                html += `<div class = 'weighttwonode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 3) {
+                html += `<div class = 'weightthreenode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 4) {
+                html += `<div class = 'weightfournode' id = '${col}-${row}'></div>`;
             } else if(grid[col][row].weight == 5) {
-                html += `<div class = 'weightnode' id = '${col}-${row}'></div>`;
+                html += `<div class = 'weightfivenode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 6) {
+                html += `<div class = 'weightsixnode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 7) {
+                html += `<div class = 'weightsevennode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 8) {
+                html += `<div class = 'weighteightnode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 9) {
+                html += `<div class = 'weightninenode' id = '${col}-${row}'></div>`;
+            } else if(grid[col][row].weight == 10) {
+                html += `<div class = 'weighttennode' id = '${col}-${row}'></div>`;
             } else if(grid[col][row].isVisited) {
                 html += `<div class = 'visitednode' id = '${col}-${row}'></div>`;
             } else {
@@ -79,6 +104,7 @@ function addListeners() {
     document.addEventListener("mouseup", mouseNotPressedListener);
     document.getElementById("visualize").addEventListener("click", visualizeListener);
     document.getElementById("clear").addEventListener("click", clearListener);
+    document.getElementById("erase").addEventListener("click", eraseListener);
     document.getElementById("select start node").addEventListener("click", addStartListener);
     document.getElementById("select end node").addEventListener("click", addEndListener);
     document.getElementById("add wall node").addEventListener("click", addWallListener);
@@ -134,69 +160,342 @@ function clearListener(event) {
     console.log(grid);
 }
 
+function eraseListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = !selectingErase;
+    if(!selectingErase) {
+        document.getElementById("erase").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "black";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "white";
+    }
+}
+
 function addStartListener(event) {
     selectingStart = !selectingStart;
     selectingEnd = false;
     selectingWall = false;
-    selectingWeight = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
+    if(!selectingStart) {
+        document.getElementById("select start node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "black";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "white";
+    }
 }
 
 function addEndListener(event) {
     selectingStart = false;
     selectingEnd = !selectingEnd;
     selectingWall = false;
-    selectingWeight = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
+    if(!selectingEnd) {
+        document.getElementById("select end node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "black";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "white";
+    }
 }
 
 function addWallListener() {
     selectingStart = false;
     selectingEnd = false;
     selectingWall = !selectingWall;
-    selectingWeight = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
+    if(!selectingWall) {
+        document.getElementById("add wall node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "black";
+        document.getElementById("add weight node").style.color = "white";
+    }
 }
 
 function addWeightListener() {
-    // selectingStart = false;
-    // selectingEnd = false;
-    // selectingWall = false;
-    // selectingWeight = !selectingWeight;
     document.getElementById("weight dropdown").style.display = "initial"
 }
 
 function weightTwoListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = !selectingWeightTwo;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightTwo) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightThreeListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = !selectingWeightThree;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightThree) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightFourListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = !selectingWeightFour;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightFour) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightFiveListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = !selectingWeightFive;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightFive) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightSixListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = !selectingWeightSix;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightSix) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightSevenListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = !selectingWeightSeven;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightSeven) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightEightListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = !selectingWeightEight;
+    selectingWeightNine = false;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightEight) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightNineListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = !selectingWeightNine;
+    selectingWeightTen = false;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightNine) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function weightTenListener() {
+    selectingStart = false;
+    selectingEnd = false;
+    selectingWall = false;
+    selectingWeightTwo = false;
+    selectingWeightThree = false;
+    selectingWeightFour = false;
+    selectingWeightFive = false;
+    selectingWeightSix = false;
+    selectingWeightSeven = false;
+    selectingWeightEight = false;
+    selectingWeightNine = false;
+    selectingWeightTen = !selectingWeightTen;
+    selectingErase = false;
     document.getElementById("weight dropdown").style.display = "none"
+    if(!selectingWeightTen) {
+        document.getElementById("add weight node").style.color = "white";
+    } else {
+        document.getElementById("erase").style.color = "white";
+        document.getElementById("select start node").style.color = "white";
+        document.getElementById("select end node").style.color = "white";
+        document.getElementById("add wall node").style.color = "white";
+        document.getElementById("add weight node").style.color = "black";
+    }
 }
 
 function aboutListener() {
@@ -232,9 +531,48 @@ function nodeClickListener(event, row, col) {
         document.getElementById(`${col}-${row}`).className = "wallnode";
         grid[col][row].isWall = true;
         grid[col][row].distance = Infinity;
-    } else if (selectingWeight) {
-        document.getElementById(`${col}-${row}`).className = "weightnode";
+    } else if (selectingWeightTwo) {
+        document.getElementById(`${col}-${row}`).className = "weighttwonode";
+        grid[col][row].weight = 2;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightThree) {
+        document.getElementById(`${col}-${row}`).className = "weightthreenode";
+        grid[col][row].weight = 3;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightFour) {
+        document.getElementById(`${col}-${row}`).className = "weightfournode";
+        grid[col][row].weight = 4;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightFive) {
+        document.getElementById(`${col}-${row}`).className = "weightfivenode";
         grid[col][row].weight = 5;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightSix) {
+        document.getElementById(`${col}-${row}`).className = "weightsixnode";
+        grid[col][row].weight = 6;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightSeven) {
+        document.getElementById(`${col}-${row}`).className = "weightsevennode";
+        grid[col][row].weight = 7;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightEight) {
+        document.getElementById(`${col}-${row}`).className = "weighteightnode";
+        grid[col][row].weight = 8;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightNine) {
+        document.getElementById(`${col}-${row}`).className = "weightninenode";
+        grid[col][row].weight = 9;
+        grid[col][row].distance = Infinity;
+    } else if (selectingWeightTen) {
+        document.getElementById(`${col}-${row}`).className = "weighttennode";
+        grid[col][row].weight = 10;
+        grid[col][row].distance = Infinity;
+    } else if (selectingErase) {
+        document.getElementById(`${col}-${row}`).className = "node";
+        grid[col][row] = createNode(row, col);
+        grid[col][row].isStart = false;
+        grid[col][row].isEnd = false;
+        grid[col][row].weight = 1;
         grid[col][row].distance = Infinity;
     }
 }
@@ -257,10 +595,59 @@ function nodeHoldListener(event, row, col) {
             document.getElementById(`${col}-${row}`).className = "wallnode";
             grid[col][row].isWall = true;
             grid[col][row].distance = Infinity;
-        } else if (selectingWeight) {
-            document.getElementById(`${col}-${row}`).className = "weightnode";
+        } else if (selectingWeightTwo) {
+            document.getElementById(`${col}-${row}`).className = "weighttwonode";
+            grid[col][row].weight = 2;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightThree) {
+            document.getElementById(`${col}-${row}`).className = "weightthreenode";
+            grid[col][row].weight = 3;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightFour) {
+            document.getElementById(`${col}-${row}`).className = "weightfournode";
+            grid[col][row].weight = 4;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightFive) {
+            document.getElementById(`${col}-${row}`).className = "weightfivenode";
             grid[col][row].weight = 5;
             grid[col][row].distance = Infinity;
+        } else if (selectingWeightSix) {
+            document.getElementById(`${col}-${row}`).className = "weightsixnode";
+            grid[col][row].weight = 6;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightSeven) {
+            document.getElementById(`${col}-${row}`).className = "weightsevennode";
+            grid[col][row].weight = 7;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightEight) {
+            document.getElementById(`${col}-${row}`).className = "weighteightnode";
+            grid[col][row].weight = 8;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightNine) {
+            document.getElementById(`${col}-${row}`).className = "weightninenode";
+            grid[col][row].weight = 9;
+            grid[col][row].distance = Infinity;
+        } else if (selectingWeightTen) {
+            document.getElementById(`${col}-${row}`).className = "weighttennode";
+            grid[col][row].weight = 10;
+            grid[col][row].distance = Infinity;
+        } else if (selectingErase) {
+            document.getElementById(`${col}-${row}`).className = "node";
+            grid[col][row] = createNode(row, col); 
+            grid[col][row].isStart = false;
+            grid[col][row].isEnd = false;
+            grid[col][row].weight = 1;
+            grid[col][row].distance = Infinity;
+            // grid[col][row] = {
+            //     isStart: row === START_ROW && col === START_COL,
+            //     isEnd: row === END_ROW && col === END_COL,
+            //     isVisited: false,
+            //     isPath: false,
+            //     isWall: false,
+            //     distance: row === START_ROW && col === START_COL ? 0 : Infinity,
+            //     weight: 1,
+            //     prevNode: null,
+            // }
         }
     }
 }
@@ -270,6 +657,7 @@ function dijkstra() {
     let unvisitedNodes = copyGridToList(grid);
     unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
     //grid[START_COL][START_ROW].isVisited = true;
+    let pathFound = false;
     while(unvisitedNodes.length > 0 && unvisitedNodes[0].distance != Infinity) {
         const node = unvisitedNodes.shift();
         if(node.row > 0) {
@@ -284,6 +672,7 @@ function dijkstra() {
                 if(grid[node.col][node.row-1].isEnd) {
                     END_ROW = node.row-1;
                     END_COL = node.col;
+                    pathFound = true;
                     break;
                 }
             }
@@ -300,6 +689,7 @@ function dijkstra() {
                 if(grid[node.col][node.row+1].isEnd) {
                     END_ROW = node.row+1;
                     END_COL = node.col;
+                    pathFound = true;
                     break;
                 }
             }
@@ -316,6 +706,7 @@ function dijkstra() {
                 if(grid[node.col-1][node.row].isEnd) {
                     END_ROW = node.row;
                     END_COL = node.col-1;
+                    pathFound = true;
                     break;
                 }
             }
@@ -332,13 +723,14 @@ function dijkstra() {
                 if(grid[node.col+1][node.row].isEnd) {
                     END_ROW = node.row;
                     END_COL = node.col+1;
+                    pathFound = true;
                     break;
                 }
             }
         }
         unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
     }
-    if(unvisitedNodes.length > 0 && unvisitedNodes[0].distance != Infinity) {
+    if(pathFound) {
         let currNode = grid[END_COL][END_ROW].prevNode;
         while(currNode.prevNode != null) {
             pathNodes.unshift(currNode);
@@ -365,7 +757,7 @@ function render() {
 function visualize() {
     setTimeout(function(){
         if(visitedNodes.length > 0) {
-            for(let i = 0; i < 16; i++) {
+            for(let i = 0; i < 36; i++) {
                 if(visitedNodes.length > 0) {
                     let currNode = visitedNodes.shift();
                     currNode.isVisited = true;
