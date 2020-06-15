@@ -5,11 +5,24 @@
             Pathfinder
         </title>
         <link rel="stylesheet" href="Pathfinder.css">
-        
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
     </head>
     <body class = "page">
         <div class = "navbar">
-            <button class = "title" style = "width:20%">
+            <ul>
+                <li><button class = "button" id = "pathfinder">Pathfinder</button></li>
+                <li><button class = "button" id = "visualize">Visualize</button></li>
+                <li><button class = "button" id = "clear">Clear Grid</button></li>
+                <li><button class = "button" id = "erase">Erase Node</button></li>
+                <li><button class = "button" id = "select start node">Add Start</button></li>
+                <li><button class = "button" id = "select end node">Add End</button></li>
+                <li><button class = "button" id = "add wall node">Add Wall</button></li>
+                <li><button class = "button" id = "add weight node">Add Weight</button></li>
+                <li><button class = "button" id = "about">About</button></li>
+                <li><button class = "button" id = "help">Help</button></li>
+
+            </ul>
+            <!-- <button class = "title" style = "width:20%">
                 Pathfinder
             </button>
             <button class = "button" id = "visualize" style = "width:8.88%">
@@ -38,7 +51,7 @@
             </button>
             <button class = "button" id = "help" style = "width:8.88%">
                 Help
-            </button>
+            </button> -->
         </div>
         <div class = "weightdropdown" id = "weight dropdown">
             <button class = "weightDropButtonTwo" id = "weighttwo" style = "width:8.88%">
@@ -79,12 +92,11 @@
                     About
                 </h1>
                 <p>
-                    This is a project developed by Samuel Ko as a learning project for basic JavaScript, HTML, and CSS. The project is designed to highlight basic webpage design concepts, </br>
-                    simple animation, user interaction, and an understanding of pathfinding algorithms both algorithmically and visually. The project's major components were </br>
-                    developed over the course of a week in which the challenge was to add as much functionality as possible. The goal was to make a visualizer that could be a </br>
+                    This is a project developed by Samuel Ko as a learning project for basic JavaScript, HTML, and CSS. The project is designed to highlight basic webpage design concepts, 
+                    simple animation, user interaction, and an understanding of pathfinding algorithms both algorithmically and visually. The project's major components were 
+                    developed over the course of a week in which the challenge was to add as much functionality as possible. The goal was to make a visualizer that could be a 
                     potentially useful learning tool or something fun to play around with. 
                 </p>
-                
             </div>
         </div>
         <div class = "modal" id = "help-modal">

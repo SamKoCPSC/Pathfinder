@@ -4,8 +4,8 @@ let START_COL = null;
 let END_ROW = null;
 let END_COL = null;
 
-let GRID_WIDTH = 75;
-let GRID_HEIGHT = 33;
+let GRID_WIDTH = 64;
+let GRID_HEIGHT = 28;
 let grid = [];
 let visitedNodes = [];
 let pathNodes = [];
@@ -28,6 +28,8 @@ let mouseDown = 0;
 
 createGrid();
 drawGrid();
+
+console.log(document.documentElement.clientWidth);
 
 function createGrid() {
     for(let col = 0; col < GRID_WIDTH; col++) {
@@ -653,10 +655,8 @@ function nodeHoldListener(event, row, col) {
 }
 
 function dijkstra() {
-    //visitedNodes.push(grid[START_COL][START_ROW]);
     let unvisitedNodes = copyGridToList(grid);
     unvisitedNodes.sort((nodeA, nodeB) => nodeA.distance - nodeB.distance);
-    //grid[START_COL][START_ROW].isVisited = true;
     let pathFound = false;
     while(unvisitedNodes.length > 0 && unvisitedNodes[0].distance != Infinity) {
         const node = unvisitedNodes.shift();
